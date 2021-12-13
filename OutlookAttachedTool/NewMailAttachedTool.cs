@@ -264,7 +264,7 @@ namespace OutlookAttachedTool
 				if (settingsMap.ContainsKey(attachment.FileName) == true && settingsMap[attachment.FileName].HasPassword == true)
 				{
 					var setting = settingsMap[attachment.FileName];
-					var line = string.Format("ファイル名：{0}\r\nパスワード：{1}\r\n", attachment.FileName, setting.PasswordText);
+					var line = string.Format("File name: {0}\r\nPassword: {1}\r\n", attachment.FileName, setting.PasswordText);
 					listList.Add(line);
 				}
 			}
