@@ -31,9 +31,22 @@ namespace OutlookAttachedTool.SubWindow
 				var index = clist_files.Items.Add(file);
 				clist_files.SetItemChecked(index, true);
 			}
+            tb_PassText.Text = GeneratePassword(8);
 		}
 
-		private void bt_OK_Click(object sender, EventArgs e)
+        private string GeneratePassword(int length)
+        {
+            const string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            StringBuilder pwd = new StringBuilder();
+            Random rnd = new Random();
+            while (0 < length--)
+            {
+                pwd.Append(chars[rnd.Next(chars.Length)]);
+            }
+            return pwd.ToString();
+        }
+
+        private void bt_OK_Click(object sender, EventArgs e)
 		{
 			if (clist_files.CheckedItems.Count == 0)
 			{
